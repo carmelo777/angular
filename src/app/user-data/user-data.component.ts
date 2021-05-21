@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../class/user';
 import { UserService } from '../services/user.service';
 
@@ -9,11 +9,15 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./user-data.component.scss']
 })
 export class UserDataComponent implements OnInit {
-  private user: User
-  constructor( private routeActive: ActivatedRoute, private userService: UserService) { }
+  public User: User
+  constructor( private routeActive: ActivatedRoute, private userService: UserService, private route:Router) { }
 
   ngOnInit(): void {
-    this.routeActive.params.subscribe(p => this.user = this.userService.getUser(+p.id))
+    this.User = new User();
+    this.routeActive.params.subscribe(p => this.User = this.userService.getUser(+p.id));
+  }
+  backToUsers(){
+    this.route.navigate(['users']);
   }
 
 }

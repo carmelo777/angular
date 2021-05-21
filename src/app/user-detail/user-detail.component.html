@@ -2,34 +2,35 @@
     <input type="hidden" name="id" id="id" [(ngModel)]="user.id">
     <div class="form-group">
         <label for="firstname">First Nane</label>
-        <input type="text" [(ngModel)]="user.name" name="firstname" id="firstname">
+        <input type="text" class="form-control" [(ngModel)]="user.name" name="firstname" id="firstname">
     </div>
     <div class="form-group">
         <label for="lastname">Last Nane</label>
-        <input type="text" [(ngModel)]="user.lastname" name="lastname" id="lastname">
+        <input type="text"  class="form-control" [(ngModel)]="user.lastname" name="lastname" id="lastname">
     </div>
     <div class="form-group">
         <label for="fiscalcode">Fiscalcode</label>
-        <input type="text" [(ngModel)]="user.fiscalcode" name="fiscalcode" id="fiscalcode">
+        <input type="text"  class="form-control" [(ngModel)]="user.fiscalcode" name="fiscalcode" id="fiscalcode">
     </div>
     <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" [(ngModel)]="user.email" name="email" id="email">
+        <input type="email"  class="form-control" [(ngModel)]="user.email" name="email" id="email">
     </div>
     <div class="form-group">
         <label for="province">Province</label>
-        <input type="text" [(ngModel)]="user.province" name="province" id="province">
+        <input type="text"  class="form-control" [(ngModel)]="user.province" name="province" id="province">
     </div>
     <div class="form-group">
         <label for="phone">Phone</label>
-        <input type="text" [(ngModel)]="user.phone" name="phone" id="phone">
+        <input type="text"  class="form-control" [(ngModel)]="user.phone" name="phone" id="phone">
     </div>
     <div class="form-group">
         <label for="age">Age</label>
-        <input type="text" [(ngModel)]="user.age" name="age" id="age">
+        <input type="text"  class="form-control" [(ngModel)]="user.age" name="age" id="age">
     </div>
-    <div class="form-group">
-        <button type="submit" (click)="saveUser()"><fa-icon [icon]="faCoffee"></fa-icon></button>
-        <button type="submit" (click)="resetForm(f.form)">Reset</button>
+    <div class="form-group form-footer text-center">
+        <button class="btn btn-primary"  (click)="backToUser()"><fa-icon [icon]="faCoffee"></fa-icon></button>
+        <button class="btn btn-success"  (click)="saveUser()"><fa-icon [icon]="faCoffee"></fa-icon></button>
+        <button class="btn btn-secondary" (click)="resetForm(f.form)">Reset</button>
     </div>
 </form>
