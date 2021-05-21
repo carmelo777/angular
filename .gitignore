@@ -21,7 +21,7 @@ chrome-profiler-events*.json
 *.launch
 .settings/
 *.sublime-workspace
-
+launch.json
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
@@ -43,3 +43,4 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
