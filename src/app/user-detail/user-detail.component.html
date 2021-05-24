@@ -1,36 +1,50 @@
 <form action="" #f="ngForm">
     <input type="hidden" name="id" id="id" [(ngModel)]="user.id">
-    <div class="form-group">
-        <label for="firstname">First Nane</label>
-        <input type="text" class="form-control" [(ngModel)]="user.name" name="firstname" id="firstname">
+    <div class="form-row">
+        <div class="form-group col-sm-6">
+            <label for="firstname">First Nane</label>
+            <input type="text" class="form-control"  [(ngModel)]="user.name" name="firstname" id="firstname" #firstname="ngModel">
+           <!--  <div class="alert-danger" *ngIf="exprfirstname.invalid">this filed is required</div> -->
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="lastname">Last Nane</label>
+            <input type="text"  class="form-control"  [(ngModel)]="user.lastname" name="lastname" id="lastname">
+            <!-- <div class="alert-danger">this filed is required</div> -->
+        </div>
     </div>
-    <div class="form-group">
-        <label for="lastname">Last Nane</label>
-        <input type="text"  class="form-control" [(ngModel)]="user.lastname" name="lastname" id="lastname">
-    </div>
-    <div class="form-group">
+
+    <div class="form-row">
+    <div class="form-group col-sm-6">
         <label for="fiscalcode">Fiscalcode</label>
-        <input type="text"  class="form-control" [(ngModel)]="user.fiscalcode" name="fiscalcode" id="fiscalcode">
+        <input type="text"  class="form-control"  [(ngModel)]="user.fiscalcode" name="fiscalcode" id="fiscalcode">
+        <!-- <div class="alert-danger">this filed is required</div> -->
     </div>
-    <div class="form-group">
+    <div class="form-group col-sm-6">
         <label for="email">Email</label>
-        <input type="email"  class="form-control" [(ngModel)]="user.email" name="email" id="email">
+        <input type="email"  class="form-control"  [(ngModel)]="user.email" name="email" id="email">
+        <!-- <div class="alert-danger">this filed is required</div> -->
     </div>
-    <div class="form-group">
+    </div>
+    <div class="form-row">
+    <div class="form-group col-sm-6">
         <label for="province">Province</label>
-        <input type="text"  class="form-control" [(ngModel)]="user.province" name="province" id="province">
+        <input type="text"  class="form-control"  [(ngModel)]="user.province" name="province" id="province">
+        <!-- <div class="alert-danger">this filed is required</div> -->
     </div>
-    <div class="form-group">
+    <div class="form-group col-sm-6">
         <label for="phone">Phone</label>
-        <input type="text"  class="form-control" [(ngModel)]="user.phone" name="phone" id="phone">
+        <input type="text"  class="form-control"  [(ngModel)]="user.phone" name="phone" id="phone">
+        <!-- <div class="alert-danger">this filed is required</div> -->
+    </div>
     </div>
     <div class="form-group">
         <label for="age">Age</label>
         <input type="text"  class="form-control" [(ngModel)]="user.age" name="age" id="age">
+        <!-- <div class="alert-danger">this filed is required</div> -->
     </div>
     <div class="form-group form-footer text-center">
         <button class="btn btn-primary"  (click)="backToUser()"><fa-icon [icon]="faCoffee"></fa-icon></button>
         <button class="btn btn-success"  (click)="saveUser()"><fa-icon [icon]="faCoffee"></fa-icon></button>
-        <button class="btn btn-secondary" (click)="resetForm(f.form)">Reset</button>
+        <button class="btn btn-secondary" [disabled]="f.invalid " (click)="resetForm(f.form)">Reset</button>
     </div>
 </form>

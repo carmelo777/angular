@@ -1,79 +1,44 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../class/user';
-
+interface UsersResponse {
+  data:User[];
+  message:string;
+  success:boolean;
+};
+interface UserResponse {
+  data:User;
+  message:string;
+  success:boolean;
+}
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
- users : Array<User> =  [
-  {
-    id:1,
-    name: 'AAA',
-    lastname : 'AAA',
-    fiscalcode:'AAAA',
-    email:'AAAA',
-    province: 'AAA',
-    phone: 'AAA',
-    age:44
-  },
-  {
-    id:2,
-    name: 'BBBBB',
-    lastname : 'BBBB',
-    email : 'BBBBB',
-    fiscalcode:'BBBBB',
-    province: 'BBBB',
-    phone: 'BBBBB',
-    age:44
-  },
-  {
-    id:3,
-    name: 'CCCCC',
-    lastname : 'CCCCC',
-    email : 'CCCCC',
-    fiscalcode:'CCCCCC',
-    province: 'CCCCCC',
-    phone: 'CCCCCC',
-    age:44
-  },
-  {
-    id:4,
-    name: 'DDDDD',
-    lastname : 'DDDDD',
-    email : 'DDDDD',
-    fiscalcode:'DDDDD',
-    province: 'DDDDD',
-    phone: 'DDDDD',
-    age:44
-  }
-]
-  constructor() { }
+  users : Array<User> =  [];
+  private  APIURL= 'http://localhost:8000/users'
+  constructor(private http: HttpClient) { }
 
   getUsers() {
-    return this.users;
+    return this.http.get<UsersResponse>(this.APIURL);
   }
   deleteUser(user: User){
-    let index = this.users.indexOf(user)
-    if(index>=0)
-      this.users.splice(index, 1);
+   return this.http.delete<UserResponse>(this.APIURL + '/' + user.id)
   }
 
   updateUser(user: User){
-    const idx = this.users.findIndex((v) => v.id === user.id)
-    if(idx !== -1){
-      this.users[idx] = user;
-    }
+   return this.http.patch<UserResponse>(this.APIURL + '/' + user.id, user);
 
   }
 
   createUser(user: User){
-    user.id = this.users.length+1
-    this.users.push(user);
+    //user.id = this.users.length+1
+    return this.http.post<UserResponse>(this.APIURL, user);
 
   }
   
-  getUser(id : number): User{
-    return this.users.find(user => user.id === id)!;
+  getUser(id : number){
+    return this.http.get<UserResponse>(this.APIURL + '/' + id);
   }
   
 }

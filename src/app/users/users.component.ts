@@ -16,10 +16,19 @@ export class UsersComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.users = this.service.getUsers()
+    this.service.getUsers().subscribe(
+      res => this.users = res['data']
+    );
   }
   onDeleteUser(user: User){
-    this.service.deleteUser(user)
+    this.service.deleteUser(user).subscribe(
+      res => {
+        this.service.getUsers().subscribe(  res => this.users = res.data)
+      },
+      err => {
+        console.log(err)
+      }
+    )
   }
   onSelectUser(user: User) {
     this.updateUser.emit(Object.assign({}, user))

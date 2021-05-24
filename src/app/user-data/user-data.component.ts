@@ -14,7 +14,9 @@ export class UserDataComponent implements OnInit {
 
   ngOnInit(): void {
     this.User = new User();
-    this.routeActive.params.subscribe(p => this.User = this.userService.getUser(+p.id));
+    this.routeActive.paramMap.subscribe(p => {
+       this.userService.getUser(+p.get('id')!).subscribe(res => this.User = res.data)
+    });
   }
   backToUsers(){
     this.route.navigate(['users']);
