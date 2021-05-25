@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from "../services/auth.service";
+import {Router} from "@angular/router";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor( private  auth: AuthService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
-
+  signIn(form: NgForm) {
+    if(!form.valid){
+      return false;
+    }
+    let result =  this.auth.signIn(form.value.email, form.value.password);
+    if(result){
+      this.router.navigate([''])
+    }
+  }
 }

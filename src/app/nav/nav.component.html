@@ -24,11 +24,11 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
         <ul class="navbar-nav px-3">
-            <li *ngIf="!isUserLogedIn" class="nav-item text-nowrap">
-                <a href="#" class="nav-link">Sign in</a>
+            <li class="nav-item text-nowrap">
+              <a *ngIf="!isUserLOggedIn" class="nav-link" href="#">Sign in</a>
             </li>
-            <li *ngIf="isUserLogedIn" class="nav-item text-nowrap">  
-                <a href="#" (click)="logout($event)" class="nav-link">Sign out</a>
+            <li class="nav-item text-nowrap">
+              <a *ngIf="isUserLOggedIn" href="#" class="nav-link" (click)="logout($event)">Sign out</a>
             </li>
         </ul>
     </div>
