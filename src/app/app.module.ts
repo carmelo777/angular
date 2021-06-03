@@ -13,6 +13,7 @@ import { UsersComponent } from './users/users.component';
 import { UserComponent } from './user/user.component';
 import { RoutingModule } from './routing.module';
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { LoginComponent } from './login/login.component';
     UserDetailComponent,
     NavComponent,
     UserDataComponent,
-    LoginComponent
+    LoginComponent,
+     SignupComponent
   ],
   imports: [
     BrowserModule,

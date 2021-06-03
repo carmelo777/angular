@@ -6,6 +6,7 @@ import { UserDataComponent } from './user-data/user-data.component';
 import { UsersComponent } from './users/users.component';
 import {RouteGuardService} from './route-guard.service';
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 const routes: Routes = [
   {
     path:'users',
@@ -33,8 +34,12 @@ const routes: Routes = [
   },
   {
     path:'login',
-    component: LoginComponent,
-   
+    component: LoginComponent,   
+  },
+  {
+    path:'signup',
+    component: SignupComponent,
+    pathMatch: 'full',   
   }
 
 ];
