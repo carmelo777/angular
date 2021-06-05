@@ -1,0 +1,56 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/frontend/dist
+/frontend/tmp
+/frontend/out-tsc
+# Only exists if Bazel was run
+/frontend//bazel-out
+
+# dependencies
+/frontend//node_modules
+
+# profiling files
+/frontend/chrome-profiler-events*.json
+
+# IDEs and editors
+/frontend/.idea
+/frontend/.project
+/frontend/.classpath
+/frontend/.c9/
+/frontend/*.launch
+/frontend/.settings/
+/frontend/*.sublime-workspace
+/frontend/launch.json
+# IDE - VSCode
+/frontend/.vscode/*
+
+
+# misc
+/frontend/.sass-cache
+/frontend/connect.lock
+/frontend/coverage
+/frontend/libpeerconnection.log
+/frontend/pm-debug.log
+/frontend/arn-error.log
+/frontend/estem.log
+/frontend/typings
+
+# System Files
+/frontend/.DS_Store
+/frontend/Thumbs.db
+
+#lara
+
+/laraapi/node_modules
+laraapi/public/hot
+laraapi/public/storage
+laraapi/storage/*.key
+laraapi/vendor
+laraapi/.env
+laraapi/.env.backup
+laraapi/.phpunit.result.cache
+laraapi/Homestead.json
+laraapi/Homestead.yaml
+laraapi/npm-debug.log
+laraapi/yarn-error.log
